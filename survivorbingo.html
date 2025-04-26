@@ -223,9 +223,12 @@
     }
 
     function resetBoard() {
-      currentSeed = Math.floor(Math.random() * 100000);
-      generateBoard(currentSeed);
-    }
+  currentSeed = Math.floor(Math.random() * 100000);
+  generateBoard(currentSeed);
+  const url = new URL(window.location.href);
+  url.searchParams.set("seed", currentSeed);
+  history.replaceState(null, null, url.toString()); // update URL immediately
+}
 
     function printBoard() {
       window.print();
