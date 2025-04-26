@@ -262,6 +262,7 @@ function getSeedFromURL() {
   return parseInt(params.get("seed"));
 }
 
+
 function createShareLink() {
   const seed = Math.floor(Math.random() * 100000);
   const url = new URL(window.location.href);
@@ -269,7 +270,6 @@ function createShareLink() {
   navigator.clipboard.writeText(url.toString())
     .then(() => {
       alert("Board copied! Here's the Link: " + url.toString());
-      generateBoard(seed);
     });
 }
 
