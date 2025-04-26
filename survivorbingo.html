@@ -87,7 +87,7 @@
   <div id="bingo-message"></div>
   <button id="reset">New Board</button>
   <button id="shareBtn">Get Board Link</button>
-  <button id="savePdfBtn">Print</button>
+  <button id="savePdfBtn">Print</button> <!-- NEW BUTTON -->
 
   <script>
 const phrases = [
@@ -269,15 +269,9 @@ function createShareLink() {
   navigator.clipboard.writeText(url.toString())
     .then(() => {
       alert("Board copied! Here's the Link: " + url.toString());
-      generateBoard(seed); // Generate board with the new seed
+      generateBoard(seed);
     });
 }
-
-// Implement print button functionality
-document.getElementById("savePdfBtn").addEventListener("click", function() {
-  console.log("Print button clicked");  // Debugging statement
-  window.print();
-});
 
 shareBtn.addEventListener("click", createShareLink);
 resetBtn.addEventListener("click", () => generateBoard());
